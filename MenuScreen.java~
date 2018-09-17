@@ -1,0 +1,27 @@
+import java.awt.image.BufferedImage ;
+import java.awt.*;  
+import javax.imageio.*;
+import java.io.*; 
+
+
+public class MenuScreen
+{
+   private BufferedImage MS = null; 
+   private Main A;
+  
+    public MenuScreen(Main A) 
+    {   
+     try 
+    {    
+      MS = ImageIO.read(new File("MainMenu.png"));
+    }
+    catch (IOException e) { }
+    
+    this.A = A;
+    }
+    
+    public void paint(Graphics2D g)
+    {
+         g.drawImage(MS, 0, 0, null);
+    }
+}

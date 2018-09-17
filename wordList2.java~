@@ -1,0 +1,43 @@
+import java.io.*;
+import java.util.*;
+//import java.util.concurrent.ThreadLocalRandom;
+
+class wordList2
+{
+  //String[] words = new String[];
+  private static String[] words = new String[1000];
+  public static String[] allWords()
+  {
+    try
+    {
+      FileReader fr = new FileReader("list of 1000 words.txt");
+      BufferedReader br = new BufferedReader(fr);
+      String line;
+      int i = 0;
+     
+      
+      while ((line = br.readLine()) != null)
+      {
+        words[i] = line;
+        i++;
+        //System.out.println(line + " " + i);
+      }
+      
+      Collections.shuffle(Arrays.asList(words));
+      //CITE THIS
+      
+      /*for (int j = 0; j < 1000; j++)
+      {
+        System.out.println(words[j] + " " + j);
+      }*/
+      //To Check the list of words
+      
+      br.close();
+    }
+    catch(IOException e)
+    {
+      System.out.println("error");
+    }
+    return words;
+  }
+}
